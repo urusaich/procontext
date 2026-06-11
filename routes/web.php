@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/{model}', [LinkController::class, 'go']);
+Route::get('/{model}', [LinkController::class, 'go'])->name('link.go');

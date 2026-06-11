@@ -35,7 +35,7 @@ final class LinkController extends Controller
 
         return [
             'code' => $model->code,
-            'short_url' => $model->url,
+            'short_url' => route('link.go', ['model' => $model->code]),
         ];
     }
 

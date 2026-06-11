@@ -15,9 +15,14 @@ final class LinkTest extends TestCase
     public function test_create(): void
     {
         $this->postJson('/api/links', ['url' => 'disajdsaija'])->assertUnprocessable();
-        $this->postJson('/api/links', ['url' => 'https://google.com'])
+        $response = $this->postJson('/api/links', ['url' => 'https://google.com'])
             ->assertOk()
             ->assertJsonStructure(['code', 'short_url']);
+
+        $this->assertEquals(route(
+            'link.go',
+            ['model' => $response->json('code')],
+        ), $response->json('short_url'));
     }
 
     public function test_go()
@@ -30,7 +35,6 @@ final class LinkTest extends TestCase
         $this->assertEquals(1, $model->refresh()->clicks);
 
         $this->get("/333djd")->assertNotFound();
-
         $this->get("/api/links/$code/stats")
             ->assertJson([
                 'url' => $model->url,
