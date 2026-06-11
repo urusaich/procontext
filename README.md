@@ -3,9 +3,9 @@ composer install
 
 cp .env.example .env
 
-./vendor/bin/sail artisan key:generate
+./vendor/bin/sail up -d
 
-docker compose up -d
+./vendor/bin/sail artisan key:generate
 
 ./vendor/bin/sail artisan migrate
 
