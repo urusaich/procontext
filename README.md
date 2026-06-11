@@ -12,3 +12,7 @@ docker compose up -d
 ##### Запуск тестов:
 
 ./vendor/bin/sail artisan test
+
+##### Документация:
+
+http://127.0.0.1/swagger

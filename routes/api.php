@@ -5,5 +5,5 @@ use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => 'links'], function() {
     Route::post('/', [LinkController::class, 'store']);
-    Route::get('{model}/stats', [LinkController::class, 'stats']);
+    Route::get('/{model}/stats', [LinkController::class, 'stats']);
 });
