@@ -3,8 +3,12 @@ composer install
 
 cp .env.example .env
 
-php artisan key:generate
+./vendor/bin/sail artisan key:generate
 
 docker compose up -d
 
-php artisan migrate
+./vendor/bin/sail artisan migrate
+
+##### Запуск тестов:
+
+./vendor/bin/sail artisan test
