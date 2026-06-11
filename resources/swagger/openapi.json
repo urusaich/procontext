@@ -6,13 +6,16 @@
   },
   "tags": [
     {
+      "name": "Web"
+    },
+    {
       "name": "Links"
     }
   ],
   "paths": {
     "/api/links": {
       "post": {
-        "operationId": "Widgets_create",
+        "operationId": "Links_create",
         "summary": "Создание короткой ссылки",
         "parameters": [],
         "responses": {
@@ -37,6 +40,9 @@
                 }
               }
             }
+          },
+          "422": {
+            "description": "Client error"
           }
         },
         "tags": [
@@ -64,7 +70,7 @@
     },
     "/api/links/{code}/stats": {
       "get": {
-        "operationId": "Widgets_stats",
+        "operationId": "Links_stats",
         "summary": "Статистика по ссылке",
         "parameters": [
           {
@@ -107,10 +113,40 @@
                 }
               }
             }
+          },
+          "404": {
+            "description": "The server cannot find the requested resource."
           }
         },
         "tags": [
           "Links"
+        ]
+      }
+    },
+    "/{code}": {
+      "get": {
+        "operationId": "Web_go",
+        "summary": "Переход по короткой ссылке",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "302": {
+            "description": "Redirection"
+          },
+          "404": {
+            "description": "The server cannot find the requested resource."
+          }
+        },
+        "tags": [
+          "Web"
         ]
       }
     }
