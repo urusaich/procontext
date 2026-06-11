@@ -7,7 +7,7 @@ namespace LinksService;
 
 @route("/api/links")
 @tag("Links")
-interface Widgets {
+interface Links {
   @summary("Создание короткой ссылки")
   @post op create(@body body: {url: string}): {code: string, short_url: string};
 
