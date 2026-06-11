@@ -19,9 +19,9 @@ interface Links {
 
   @summary("Статистика по ссылке")
   @route("{code}/stats") @get op stats(@path code: string): {
-    url: string;
-    code: string;
-    clicks: numeric;
+    url: string = "https://google.com/";
+    code: string = "38dmdu";
+    clicks: numeric = 42;
     created_at: utcDateTime;
   } | Response<404>;
 }

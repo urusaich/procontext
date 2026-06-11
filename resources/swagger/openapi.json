@@ -91,13 +91,16 @@
                   "type": "object",
                   "properties": {
                     "url": {
-                      "type": "string"
+                      "type": "string",
+                      "default": "https://google.com/"
                     },
                     "code": {
-                      "type": "string"
+                      "type": "string",
+                      "default": "38dmdu"
                     },
                     "clicks": {
-                      "type": "number"
+                      "type": "number",
+                      "default": 42
                     },
                     "created_at": {
                       "type": "string",
